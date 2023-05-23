@@ -4,7 +4,7 @@ from werkzeug.utils import secure_filename
 from tensorflow.keras.models import Sequential, load_model
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.optimizers import Adadelta
-
+import tensorflow as tf
 import numpy as np
 
 
@@ -20,7 +20,7 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 #model = load_model('./model.h5') 
-model = tensorflow.keras.models.load_model('./model.h5', compile=False)
+model = tf.keras.models.load_model('./model.h5', compile=False)
 
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
